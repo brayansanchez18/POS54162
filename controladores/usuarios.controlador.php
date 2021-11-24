@@ -2,6 +2,10 @@
 
 class ControladorUsuarios {
 
+  /* -------------------------------------------------------------------------- */
+  /*                             INGRESO DE USUARIOS                            */
+  /* -------------------------------------------------------------------------- */
+
   static public function ctrIngresoUsuario() {
 
     if (isset($_POST['ingUsuario'])) {
@@ -28,9 +32,9 @@ class ControladorUsuarios {
             $_SESSION['foto'] = $respuesta['foto'];
             $_SESSION['perfil'] = $respuesta['perfil'];
 
-            /*==================================================================
-            =            REGISTRAR FECHA PARA SABER EL ULTIMO LOGIN            =
-            ==================================================================*/
+            /* -------------------------------------------------------------------------- */
+            /*                 REGISTRAR FECHA PARA SABER EL ULTIMO LOGIN                 */
+            /* -------------------------------------------------------------------------- */
 
             date_default_timezone_set('America/Mexico_City');
 
@@ -39,21 +43,23 @@ class ControladorUsuarios {
 
             $fechaActual = $fecha.' '.$hora;
 
-            $item1 = "ultimologin";
+            $item1 = 'ultimologin';
             $valor1 = $fechaActual;
 
-            $item2 = "id";
-            $valor2 = $respuesta["id"];
+            $item2 = 'id';
+            $valor2 = $respuesta['id'];
 
             $ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
 
-            if ($ultimoLogin == "ok") {
+            if ($ultimoLogin == 'ok') {
 
               echo '<script>
                 window.location = "inicio";
               </script>';
 
             }
+
+            /* ------------ End of REGISTRAR FECHA PARA SABER EL ULTIMO LOGIN ----------- */
 
           } else {
 
@@ -99,6 +105,21 @@ class ControladorUsuarios {
 
     }
 
+
   }
+
+  /* ----------------------- End of INGRESO DE USUARIOS ----------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                               MOSTRAR USUARIO                              */
+  /* -------------------------------------------------------------------------- */
+
+  static public function ctrMostrarUsuarios($item, $valor) {
+    $tabla = 'usuarios';
+    $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+    return $respuesta;
+  }
+
+  /* ------------------------- End of MOSTRAR USUARIO ------------------------- */
 
 }

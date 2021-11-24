@@ -4,9 +4,9 @@ require_once 'conexion.php';
 
 class ModeloUsuarios {
 
-  /*========================================
-  =            MOSTRAR USUARIOS            =
-  ========================================*/
+  /* -------------------------------------------------------------------------- */
+  /*                              MOSTRAR USUARIOS                              */
+  /* -------------------------------------------------------------------------- */
 
   static public function mdlMostrarUsuarios($tabla, $item, $valor) {
 
@@ -26,11 +26,11 @@ class ModeloUsuarios {
 
   }
 
-  /*=====  End of MOSTRAR USUARIOS  ======*/
+  /* ------------------------- End of MOSTRAR USUARIOS ------------------------ */
 
-  /*==========================================
-  =            ACTUALIZAR USUARIO            =
-  ==========================================*/
+  /* -------------------------------------------------------------------------- */
+  /*                             ACTUALIZAR USUARIO                             */
+  /* -------------------------------------------------------------------------- */
 
   static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2){
 
@@ -45,6 +45,6 @@ class ModeloUsuarios {
 
   }
 
-  /*=====  End of ACTUALIZAR USUARIO  ======*/
+  /* ------------------------ End of ACTUALIZAR USUARIO ----------------------- */
 
 }
