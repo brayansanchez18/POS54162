@@ -41,7 +41,7 @@ $(".tablaUsuarios").DataTable({
 
 $('.nuevaFoto').change(function() {
 
-  var imagen = this.files[0];
+  let imagen = this.files[0];
 
   /* -------------------------------------------------------------------------- */
   /*               VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG              */
@@ -89,11 +89,11 @@ $('.nuevaFoto').change(function() {
 
   else {
 
-    var datosImagen = new FileReader;
+    let datosImagen = new FileReader;
     datosImagen.readAsDataURL(imagen);
 
     $(datosImagen).on("load", function(event) {
-      var rutaImagen = event.target.result;
+      let rutaImagen = event.target.result;
       $(".previsualizar").attr("src", rutaImagen);
     })
 
@@ -111,10 +111,10 @@ $('.nuevaFoto').change(function() {
 
 $(document).on("click", ".btnActivar", function() {
 
-  var idUsuario = $(this).attr("idUsuario");
-  var estadoUsuario = $(this).attr("estadoUsuario");
+  let idUsuario = $(this).attr("idUsuario");
+  let estadoUsuario = $(this).attr("estadoUsuario");
 
-  var datos = new FormData();
+  let datos = new FormData();
   datos.append("activarId", idUsuario);
   datos.append("activarUsuario", estadoUsuario);
 
@@ -170,9 +170,9 @@ $("#nuevoUsuario").change(function() {
 
   $(".alert").remove();
 
-  var usuario = $(this).val();
+  let usuario = $(this).val();
 
-  var datos = new FormData();
+  let datos = new FormData();
   datos.append("validarUsuario", usuario);
 
   $.ajax({
@@ -204,9 +204,9 @@ $("#nuevoUsuario").change(function() {
 
 $(document).on("click", ".btnEditarUsuario", function() {
 
-  var idUsuario = $(this).attr("idUsuario");
+  let idUsuario = $(this).attr("idUsuario");
 
-  var datos = new FormData();
+  let datos = new FormData();
   datos.append("idUsuario", idUsuario);
 
   $.ajax({
@@ -246,9 +246,9 @@ $(document).on("click", ".btnEditarUsuario", function() {
 
 $(document).on("click", ".btnEliminarUsuario", function() {
 
-  var idUsuario = $(this).attr("idUsuario");
-  var fotoUsuario = $(this).attr("fotoUsuario");
-  var usuario = $(this).attr("usuario");
+  let idUsuario = $(this).attr("idUsuario");
+  let fotoUsuario = $(this).attr("fotoUsuario");
+  let usuario = $(this).attr("usuario");
 
   Swal.fire({
     title: '¿Está seguro de borrar el usuario?',

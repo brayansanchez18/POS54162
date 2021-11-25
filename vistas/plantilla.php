@@ -44,7 +44,7 @@
   <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 </head>
 <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok'): ?>
-  <body class="hold-transition sidebar-mini sidebar-collapse">
+  <body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed layout-fixed layout-navbar-fixed">
 <?php else: ?>
   <body class="hold-transition login-page">
 <?php endif ?>
@@ -84,5 +84,6 @@
 
 ?>
   <script src="vistas/js/perfiles.js"></script>
+  <script src="vistas/js/categorias.js"></script>
 </body>
 </html>

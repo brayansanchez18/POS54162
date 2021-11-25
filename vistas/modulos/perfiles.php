@@ -13,7 +13,7 @@ $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor); ?>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?=$frotnend?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?=$frontend?>">Inicio</a></li>
             <li class="breadcrumb-item active">Administrar Usuarios</li>
           </ol>
         </div>
