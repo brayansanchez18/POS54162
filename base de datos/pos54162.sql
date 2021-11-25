@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2021 a las 01:39:40
+-- Tiempo de generación: 25-11-2021 a las 18:08:30
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.25
 
@@ -185,14 +185,13 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-24 18:36:58', '2021-11-25 00:36:58'),
+(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-25 09:10:37', '2021-11-25 15:10:37'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-04-09 16:15:26', '2021-04-09 21:15:26'),
 (9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-04-15 16:51:38', '2021-04-16 03:14:51'),
-(11, 'Diana Alvarez', 'diana@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/diana@tuempresa.com/668.jpg', 1, '0000-00-00 00:00:00', '2021-04-16 03:13:37'),
-(17, 'prueba1', 'prueba1', '$2a$07$asxx54ahjppf45sd87a5au6PuqDRoOBLeXILXpnaEE70C01YRVVRG', 'Administrador', '', 0, '0000-00-00 00:00:00', '2021-11-24 21:56:15'),
-(18, 'jasdfasdfj', 'jasdfjajsdf', '$2a$07$asxx54ahjppf45sd87a5au/MQ47ARjlq30LFCJZtxw7D0aAbAhe1e', 'Administrador', 'vistas/img/usuarios/jasdfjajsdf/681.png', 0, '0000-00-00 00:00:00', '2021-11-24 22:05:38'),
-(19, 'prueba2', 'prueba2', '$2a$07$asxx54ahjppf45sd87a5auHZPYySdWSMpJQy0/17lrojl4DUlQYIi', 'Vendedor', 'vistas/img/usuarios/prueba2/431.jpg', 0, '0000-00-00 00:00:00', '2021-11-24 22:48:08'),
-(20, 'prueba3', 'prueba3', '$2a$07$asxx54ahjppf45sd87a5auVUDFPOy15axdxpDQ0Kv0SDEzrcPrv.i', 'Especial', 'vistas/img/usuarios/prueba3/886.jpg', 0, '0000-00-00 00:00:00', '2021-11-24 23:06:16');
+(17, 'prueba123', 'prueba1', '$2a$07$asxx54ahjppf45sd87a5au9qVvwX8gFJUBxfGfDrhdF9F0ilMkf..', 'Administrador', 'vistas/img/usuarios/prueba1/505.png', 1, '2021-11-25 11:02:34', '2021-11-25 17:06:50'),
+(18, 'jasdfasdfj', 'jasdfjajsdf', '$2a$07$asxx54ahjppf45sd87a5au/MQ47ARjlq30LFCJZtxw7D0aAbAhe1e', 'Administrador', 'vistas/img/usuarios/jasdfjajsdf/681.png', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:18'),
+(19, 'prueba2', 'prueba2', '$2a$07$asxx54ahjppf45sd87a5auHZPYySdWSMpJQy0/17lrojl4DUlQYIi', 'Vendedor', 'vistas/img/usuarios/prueba2/431.jpg', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:17'),
+(20, 'prueba3', 'prueba3', '$2a$07$asxx54ahjppf45sd87a5auVUDFPOy15axdxpDQ0Kv0SDEzrcPrv.i', 'Especial', 'vistas/img/usuarios/prueba3/532.png', 1, '2021-11-25 11:07:49', '2021-11-25 17:07:49');
 
 -- --------------------------------------------------------
 

@@ -157,3 +157,77 @@ $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor); ?>
 </div>
 
 <!-- ---------------------- End of MODAL AGREGAR USUARIO ---------------------- -->
+
+<!-- -------------------------------------------------------------------------- */
+/*                             MODAL EDITAR USUARIO                             */
+/* -------------------------------------------------------------------------- -->
+
+<div class="modal fade" id="modalEditarUsuario">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form role="form" method="post" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h4 class="modal-title">Editar usuario</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+              </div>
+              <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+              <input type="hidden" id="passwordActual" name="passwordActual">
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key"></i></span>
+              </div>
+              <select class="form-control input-lg" name="editarPerfil">
+                <option value="" id="editarPerfil"></option>
+                <option value="Administrador">Administrador</option>
+                <option value="Especial">Especial</option>
+                <option value="Vendedor">Vendedor</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <div class="panel">SUBIR FOTO</div>
+              <input type="file" class="nuevaFoto form-control input-lg" name="editarFoto">
+              <input type="hidden" name="fotoActual" id="fotoActual">
+              <p class="help-block">Peso máximo de la foto 5MB</p>
+              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="200px">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Perfil</button>
+        </div>
+
+        <?php $editarUsuario = new ControladorUsuarios(); $editarUsuario -> ctrEditarUsuario(); ?>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------- End of MODAL EDITAR USUARIO ---------------------- -->
+
+<?php $borrarUsuario = new ControladorUsuarios(); $borrarUsuario -> ctrBorrarUsuario(); ?>
