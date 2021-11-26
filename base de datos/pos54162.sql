@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2021 a las 18:08:30
+-- Tiempo de generación: 27-11-2021 a las 00:25:53
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.25
 
@@ -42,9 +42,7 @@ INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 (2, 'Taladros', '2021-03-27 19:23:47'),
 (3, 'Andamios', '2021-03-27 19:24:07'),
 (4, 'Generadores de energía', '2021-03-27 19:24:23'),
-(5, 'Equipos para construcción', '2021-03-27 19:24:45'),
-(7, 'Martillos mecánicos', '2021-03-27 19:48:02'),
-(8, 'Herreria', '2021-04-16 03:14:06');
+(5, 'Equipos para construcción', '2021-03-27 19:24:45');
 
 -- --------------------------------------------------------
 
@@ -185,7 +183,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-25 09:10:37', '2021-11-25 15:10:37'),
+(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-26 12:46:54', '2021-11-26 18:46:55'),
 (8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-04-09 16:15:26', '2021-04-09 21:15:26'),
 (9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-04-15 16:51:38', '2021-04-16 03:14:51'),
 (17, 'prueba123', 'prueba1', '$2a$07$asxx54ahjppf45sd87a5au9qVvwX8gFJUBxfGfDrhdF9F0ilMkf..', 'Administrador', 'vistas/img/usuarios/prueba1/505.png', 1, '2021-11-25 11:02:34', '2021-11-25 17:06:50'),
@@ -267,7 +265,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -279,13 +277,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

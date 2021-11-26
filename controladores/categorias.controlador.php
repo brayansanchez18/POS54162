@@ -137,18 +137,15 @@ class ControladorCategorias {
 
     if (isset($_GET['idCategoria'])) {
 
-      $tabla ='Categorias';
-      $datos = $_GET['idCategoria'];
+      $productos = ControladorProductos::ctrMostrarProductos('idCategoria', $_GET['idCategoria']);
 
-      $respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
+      if (is_array($productos) && count($productos) != 0) {
 
-      if ($respuesta == 'ok') {
-
-        echo '<script>
+        echo'<script>
           Swal.fire({
-            title: "¡BORRADO!",
-            text: "La categoría ha sido borrada correctamente",
-            icon: "success",
+            title: "¡ERROR!",
+            text: "La categoria no puede ser eliminada por que contiene productos",
+            icon: "error",
             confirmButtonText: "Cerrar",
             closeOnConfirm: false,
           }).then((isConfirm) => {
@@ -157,6 +154,31 @@ class ControladorCategorias {
             }
           })
         </script>';
+
+      } else {
+
+        $tabla ='Categorias';
+        $datos = $_GET['idCategoria'];
+
+        $respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
+
+        if ($respuesta == 'ok') {
+
+          echo '<script>
+            Swal.fire({
+              title: "¡BORRADO!",
+              text: "La categoría ha sido borrada correctamente",
+              icon: "success",
+              confirmButtonText: "Cerrar",
+              closeOnConfirm: false,
+            }).then((isConfirm) => {
+              if (isConfirm) {
+                window.location = "categorias";
+              }
+            })
+          </script>';
+
+        }
 
       }
 

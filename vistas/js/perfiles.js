@@ -97,7 +97,7 @@ $('.nuevaFoto').change(function() {
       $(".previsualizar").attr("src", rutaImagen);
     })
 
-    }
+  }
 
   /* -------------------- End of PREVISUALIZAMOS LA IMAGEN -------------------- */
 

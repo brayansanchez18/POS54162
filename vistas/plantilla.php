@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+  <!-- iCheck -->
+  <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
+
   <!-- jQuery -->
   <script src="vistas/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
@@ -42,9 +45,13 @@
   <script src="vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
   <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
   <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+  <!-- iCheck -->
+  <!-- <script src="vistas/js/jquery/jquiery3.min.js"></script> -->
+  <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 </head>
 <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok'): ?>
-  <body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed layout-fixed layout-navbar-fixed">
+  <body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed layout-fixed">
 <?php else: ?>
   <body class="hold-transition login-page">
 <?php endif ?>
@@ -83,7 +90,9 @@
   } else { include_once 'modulos/login.php'; }
 
 ?>
+  <script src="vistas/js/plantilla.js"></script>
   <script src="vistas/js/perfiles.js"></script>
   <script src="vistas/js/categorias.js"></script>
+  <script src="vistas/js/productos.js"></script>
 </body>
 </html>
