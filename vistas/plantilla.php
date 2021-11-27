@@ -47,8 +47,13 @@
   <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
   <!-- iCheck -->
-  <!-- <script src="vistas/js/jquery/jquiery3.min.js"></script> -->
   <script src="vistas/plugins/iCheck/icheck.min.js"></script>
+
+  <!-- InputMask -->
+  <script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
 </head>
 <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok'): ?>
   <body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed layout-fixed">
@@ -94,5 +99,6 @@
   <script src="vistas/js/perfiles.js"></script>
   <script src="vistas/js/categorias.js"></script>
   <script src="vistas/js/productos.js"></script>
+  <script src="vistas/js/clientes.js"></script>
 </body>
 </html>
