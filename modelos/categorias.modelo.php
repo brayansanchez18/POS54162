@@ -16,7 +16,7 @@ class ModeloCategorias {
       $stmt -> execute();
       return $stmt -> fetch();
     } else {
-      $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC");
+      $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
       $stmt -> execute();
       return $stmt -> fetchAll();
     }
