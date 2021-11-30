@@ -54,6 +54,12 @@
   <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
   <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
   <script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
+
+  <!-- ionic -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="vistas/plugins/chart.js/Chart.min.js"></script>
 </head>
 <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == 'ok'): ?>
   <body class="hold-transition sidebar-mini sidebar-collapse layout-footer-fixed layout-fixed">

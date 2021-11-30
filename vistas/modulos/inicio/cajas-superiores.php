@@ -1,15 +1,33 @@
+<?php
+
+$item = null;
+$valor = null;
+$orden = 'id';
+
+$ventas = ControladorVentas::ctrSumaTotalVentas();
+
+$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+$totalCategorias = count($categorias);
+
+$clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+$totalClientes = count($clientes);
+
+$productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
+$totalProductos = count($productos);
+
+?>
 <div class="col-lg-3 col-md-6 col-12">
   <!-- small box -->
   <div class="small-box bg-info">
     <div class="inner">
-      <h3>150</h3>
+      <h3><?=number_format($ventas['total'],2)?></h3>
 
-      <p>New Orders</p>
+      <p>Ventas</p>
     </div>
     <div class="icon">
-      <i class="ion ion-bag"></i>
+      <i class="fas fa-dollar-sign"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="administrar-ventas" class="small-box-footer">Más info. <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!-- ./col -->
@@ -17,14 +35,14 @@
   <!-- small box -->
   <div class="small-box bg-success">
     <div class="inner">
-      <h3>53<sup style="font-size: 20px">%</sup></h3>
+      <h3><?=number_format($totalCategorias)?></h3>
 
-      <p>Bounce Rate</p>
+      <p>Categorías</p>
     </div>
     <div class="icon">
-      <i class="ion ion-stats-bars"></i>
+      <i class="far fa-clipboard"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="categorias" class="small-box-footer">Más info. <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!-- ./col -->
@@ -32,14 +50,14 @@
   <!-- small box -->
   <div class="small-box bg-warning">
     <div class="inner">
-      <h3>44</h3>
+      <h3><?=number_format($totalClientes)?></h3>
 
-      <p>User Registrations</p>
+      <p>Clientes</p>
     </div>
     <div class="icon">
-      <i class="ion ion-person-add"></i>
+      <i class="fas fa-user-plus"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="clientes" class="small-box-footer">Más info. <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!-- ./col -->
@@ -47,14 +65,14 @@
   <!-- small box -->
   <div class="small-box bg-danger">
     <div class="inner">
-      <h3>65</h3>
+      <h3><?=number_format($totalProductos)?></h3>
 
-      <p>Unique Visitors</p>
+      <p>Productos</p>
     </div>
     <div class="icon">
-      <i class="ion ion-pie-graph"></i>
+      <i class="fas fa-boxes"></i>
     </div>
-    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    <a href="productos" class="small-box-footer">Más info. <i class="fas fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <!-- ./col -->

@@ -31,13 +31,13 @@
         <?php endif ?>
       </div>
 
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-7">
         <?php if ($_SESSION['perfil'] == 'Administrador'): ?>
           <?php include_once 'reportes/productos-mas-vendidos.php'; ?>
         <?php endif ?>
       </div>
 
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-5">
         <?php if ($_SESSION['perfil'] == 'Administrador'): ?>
           <?php include_once 'inicio/productos-recientes.php'; ?>
         <?php endif ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2021 a las 00:25:53
+-- Tiempo de generación: 01-12-2021 a las 00:54:17
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.25
 
@@ -53,11 +53,8 @@ INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `documento` int(11) NOT NULL,
   `email` text COLLATE utf8_spanish_ci NOT NULL,
   `telefono` text COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
-  `fechaNacimiento` date NOT NULL,
   `compras` int(11) NOT NULL,
   `ultimaCompra` datetime NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -67,11 +64,11 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fechaNacimiento`, `compras`, `ultimaCompra`, `fecha`) VALUES
-(1, 'Juan Villegas', 2147483647, 'juan@hotmail.com', '(300) 341-2345', 'Calle 23 # 45 - 56', '1980-11-02', 7, '2021-04-14 17:39:19', '2021-04-14 22:39:19'),
-(3, 'Miguel Murillo Prez', 325235235, 'miguel@gmail.com', '(+52) 722-126-5399', 'calle 34 # 34 - 23', '1998-09-05', 10, '2021-04-15 15:30:17', '2021-04-16 03:18:35'),
-(4, 'Victor Gabriel', 1234567, 'vg@gmail.com', '(+52) 722-123-5699', 'AV. chapultepec #10', '2001-10-12', 3, '2021-04-15 16:57:24', '2021-04-15 21:57:24'),
-(5, 'Michelle Sandoval', 2147483647, 'michelle@cliente.com', '(+52) 722-883-8661', 'AV. chapultepec #10', '2001-12-10', 0, '0000-00-00 00:00:00', '2021-04-16 03:16:47');
+INSERT INTO `clientes` (`id`, `nombre`, `email`, `telefono`, `compras`, `ultimaCompra`, `fecha`) VALUES
+(1, 'Juan Villegas', 'juan@hotmail.com', '(+52) 341-245-4100', 3, '0000-00-00 00:00:00', '2021-11-30 23:48:16'),
+(3, 'Miguel Murillo Prez', 'miguel@gmail.com', '(+52) 722-126-5399', -6, '2021-03-15 15:30:17', '2021-11-30 23:49:35'),
+(4, 'Victor Gabriel', 'vg@gmail.com', '(+52) 722-123-5699', -24, '2021-04-15 16:57:24', '2021-11-30 23:51:50'),
+(5, 'Michelle Sandoval', 'michelle@cliente.com', '(+52) 722-883-8661', 0, '0000-00-00 00:00:00', '2021-04-16 03:16:47');
 
 -- --------------------------------------------------------
 
@@ -97,13 +94,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
-(1, 1, '101', 'Aspiradora Industrial 2', 'vistas/img/productos/101/660.png', 18, 90000, 126000, 6, '2021-04-16 03:18:34'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/489.jpg', 17, 4500, 6300, 2, '2021-04-16 03:18:34'),
-(3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 24, 3000, 4200, -3, '2021-04-16 03:18:34'),
-(4, 1, '104', 'Cortadora de Adobe sin Disco ', 'vistas/img/productos/104/274.jpg', 25, 4000, 5600, -5, '2021-04-14 22:39:19'),
-(5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 9, 1540, 2156, 11, '2021-04-15 21:57:24'),
-(6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 19, 1100, 1540, 1, '2021-04-14 22:39:19'),
-(7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 20, 1540, 2156, 2, '2021-04-15 20:30:17'),
+(1, 1, '101', 'Aspiradora Industrial 2', 'vistas/img/productos/101/660.png', 10, 90000, 126000, -4, '2021-11-30 23:48:16'),
+(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/489.jpg', 22, 4500, 6300, -3, '2021-11-30 23:49:35'),
+(3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 18, 3000, 4200, -8, '2021-11-30 23:51:50'),
+(4, 1, '104', 'Cortadora de Adobe sin Disco ', 'vistas/img/productos/104/274.jpg', 27, 4000, 5600, -7, '2021-11-30 23:51:49'),
+(5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 32, 1540, 2156, -12, '2021-11-30 23:49:03'),
+(6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 20, 1100, 1540, 0, '2021-11-30 23:48:16'),
+(7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 21, 1540, 2156, 1, '2021-11-30 23:51:49'),
 (8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 19, 1540, 2156, 1, '2021-04-15 20:30:17'),
 (9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 20, 2600, 3640, 0, '2021-03-29 00:58:24'),
 (10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/566.jpg', 22, 2210, 3094, -2, '2021-04-14 21:38:53'),
@@ -183,9 +180,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-26 12:46:54', '2021-11-26 18:46:55'),
-(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-04-09 16:15:26', '2021-04-09 21:15:26'),
-(9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-04-15 16:51:38', '2021-04-16 03:14:51'),
+(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-30 15:11:59', '2021-11-30 21:11:59'),
+(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auF3SxTPxKrykQWP2opioJ/PI/QjcniEW', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-11-30 15:05:01', '2021-11-30 21:05:01'),
+(9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-11-30 15:06:46', '2021-11-30 21:06:46'),
 (17, 'prueba123', 'prueba1', '$2a$07$asxx54ahjppf45sd87a5au9qVvwX8gFJUBxfGfDrhdF9F0ilMkf..', 'Administrador', 'vistas/img/usuarios/prueba1/505.png', 1, '2021-11-25 11:02:34', '2021-11-25 17:06:50'),
 (18, 'jasdfasdfj', 'jasdfjajsdf', '$2a$07$asxx54ahjppf45sd87a5au/MQ47ARjlq30LFCJZtxw7D0aAbAhe1e', 'Administrador', 'vistas/img/usuarios/jasdfjajsdf/681.png', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:18'),
 (19, 'prueba2', 'prueba2', '$2a$07$asxx54ahjppf45sd87a5auHZPYySdWSMpJQy0/17lrojl4DUlQYIi', 'Vendedor', 'vistas/img/usuarios/prueba2/431.jpg', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:17'),
@@ -215,13 +212,9 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `idCliente`, `idVendedor`, `productos`, `impuesto`, `neto`, `total`, `metodoPago`, `fecha`) VALUES
-(2, 10002, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2021-04-16 03:18:51'),
-(3, 10002, 3, 1, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"4\",\"stock\":\"18\",\"precio\":\"126000\",\"total\":\"504000\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"2\",\"stock\":\"24\",\"precio\":\"4200\",\"total\":\"8400\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"6300\",\"total\":\"12600\"}]', 0, 520800, 677040, 'TC-1234567', '2021-04-16 03:18:51'),
-(4, 10003, 4, 1, '[{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"2\",\"stock\":\"17\",\"precio\":\"2156\",\"total\":\"4312\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"5600\",\"total\":\"5600\"}]', 4233.6, 14112, 18345.6, 'Efectivo', '2021-02-09 22:14:14'),
-(6, 10004, 1, 8, '[{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"126000\",\"total\":\"126000\"},{\"id\":\"6\",\"descripcion\":\"Disco Punta Diamante \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"1540\",\"total\":\"1540\"},{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"1\",\"stock\":\"33\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"4\",\"descripcion\":\"Cortadora de Adobe sin Disco \",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"5600\",\"total\":\"5600\"}]', 46000.6, 135296, 181297, 'TC-123456789', '2021-02-14 23:39:19'),
-(7, 10005, 3, 8, '[{\"id\":\"8\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1293.6, 4312, 5605.6, 'Efectivo', '2021-03-15 21:30:17'),
-(8, 10006, 4, 1, '[{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"25\",\"precio\":\"4200\",\"total\":\"4200\"},{\"id\":\"2\",\"descripcion\":\"Plato Flotante para Allanadora\",\"cantidad\":\"1\",\"stock\":\"22\",\"precio\":\"6300\",\"total\":\"6300\"},{\"id\":\"1\",\"descripcion\":\"Aspiradora Industrial 2\",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"126000\",\"total\":\"126000\"}]', 54600, 136500, 191100, 'TC-123456789', '2021-04-15 21:56:43'),
-(9, 10007, 4, 1, '[{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"24\",\"stock\":\"9\",\"precio\":\"2156\",\"total\":\"51744\"}]', 15523.2, 51744, 67267.2, 'TD-1234567890', '2021-04-15 21:57:24');
+(4, 10003, 4, 1, '[{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"4200\",\"total\":\"4200\"}]', 127.12, 6356, 6483.12, 'Efectivo', '2021-09-30 22:51:50'),
+(7, 10005, 3, 8, '[{\"id\":\"8\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1293.6, 4312, 5605.6, 'Efectivo', '2021-10-15 20:30:17'),
+(9, 10007, 4, 1, '[{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"2\",\"stock\":\"32\",\"precio\":\"2156\",\"total\":\"4312\"}]', 1293.6, 4312, 5605.6, 'TC-123123', '2021-11-30 23:49:04');
 
 --
 -- Índices para tablas volcadas
@@ -265,13 +258,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -289,7 +282,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
