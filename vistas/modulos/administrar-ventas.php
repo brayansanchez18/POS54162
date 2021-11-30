@@ -1,3 +1,15 @@
+<?php
+
+if ($_SESSION['perfil'] == 'Especial') {
+
+  echo '<script>
+    window.location = "inicio";
+  </script>';
+  return;
+
+}
+
+?>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -53,7 +65,4 @@
   <!-- /.content -->
 </div>
 
-<?php
-// $eliminarVenta = new ControladorVentas();
-// $eliminarVenta -> ctrEliminarVenta();
-?>
+<?php $eliminarVenta = new ControladorVentas(); $eliminarVenta -> ctrEliminarVenta(); ?>

@@ -469,4 +469,85 @@ function listarMetodos() {
 /*                                EDITAR VENTA                                */
 /* -------------------------------------------------------------------------- */
 
+$('.tablaAdministrarVentas').on('click', '.btnEditarVenta', function() {
+  let idVenta = $(this).attr('idVenta');
+  window.location = 'index.php?ruta=editar-venta&idVenta='+idVenta;
+})
+
 /* --------------------------- End of EDITAR VENTA -------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                 FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR                */
+/* -------------------------------------------------------------------------- */
+
+function quitarAgregarProducto(){
+
+  //Capturamos todos los id de productos que fueron elegidos en la venta
+  let idProductos = $(".quitarProducto");
+
+  //Capturamos todos los botones de agregar que aparecen en la tabla
+  let botonesTabla = $(".tablaVentas tbody button.agregarProducto");
+
+  //Recorremos en un ciclo para obtener los diferentes idProductos que fueron agregados a la venta
+  for (let i = 0; i < idProductos.length; i++) {
+
+    //Capturamos los Id de los productos agregados a la venta
+    let boton = $(idProductos[i]).attr("idProducto");
+
+    //Hacemos un recorrido por la tabla que aparece para desactivar los botones de agregar
+    for (let j = 0; j < botonesTabla.length; j ++) {
+
+      if ($(botonesTabla[j]).attr("idProducto") == boton) {
+        $(botonesTabla[j]).removeClass("btn-primary agregarProducto");
+        $(botonesTabla[j]).addClass("btn-default");
+      }
+
+    }
+
+  }
+
+}
+
+/* ----------- End of FUNCIÓN PARA DESACTIVAR LOS BOTONES AGREGAR ----------- */
+
+//##CADA VEZ QUE CARGUE LA TABLA CUANDO NAVEGAMOS EN ELLA EJECUTAR LA FUNCIÓN:##//
+
+$('.tablaVentas').on( 'draw.dt', function() { quitarAgregarProducto(); })
+
+/* -------------------------------------------------------------------------- */
+/*                                BORRAR VENTA                                */
+/* -------------------------------------------------------------------------- */
+
+$(".tablaAdministrarVentas").on("click", ".btnEliminarVenta", function() {
+
+  let idVenta = $(this).attr("idVenta");
+
+  Swal.fire({
+    title: '¿Está seguro de borrar la venta?',
+    text: "Si no lo está puede cancelar la accíón",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Si, borrar venta'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location = "index.php?ruta=administrar-ventas&idVenta="+idVenta;
+    }
+  })
+
+})
+
+/* --------------------------- End of BORRAR VENTA -------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                              IMPRIMIR FACTURA                              */
+/* -------------------------------------------------------------------------- */
+
+$('.tablaAdministrarVentas').on('click', '.btnImprimirFactura', function() {
+  let codigoVenta = $(this).attr('codigoVenta');
+  window.open('extensiones/tcpdf/examples/factura.php?codigo='+codigoVenta, '_blank');
+})
+
+/* ------------------------- End of IMPRIMIR FACTURA ------------------------ */

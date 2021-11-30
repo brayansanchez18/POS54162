@@ -54,4 +54,62 @@ class ModeloVentas {
 
   /* ------------------------ FIN DE REGISTRO DE VENTA ------------------------ */
 
+  /* -------------------------------------------------------------------------- */
+	/*                                EDITAR VENTA                                */
+	/* -------------------------------------------------------------------------- */
+
+  static public function mdlEditarVenta($tabla, $datos) {
+
+    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  idCliente = :idCliente, idVendedor = :idVendedor, productos = :productos, impuesto = :impuesto, neto = :neto, total= :total, metodoPago = :metodoPago WHERE codigo = :codigo");
+
+    $stmt->bindParam(':codigo', $datos['codigo'], PDO::PARAM_INT);
+    $stmt->bindParam(':idCliente', $datos['idCliente'], PDO::PARAM_INT);
+    $stmt->bindParam(':idVendedor', $datos['idVendedor'], PDO::PARAM_INT);
+    $stmt->bindParam(':productos', $datos['productos'], PDO::PARAM_STR);
+    $stmt->bindParam(':impuesto', $datos['impuesto'], PDO::PARAM_STR);
+    $stmt->bindParam(':neto', $datos['neto'], PDO::PARAM_STR);
+    $stmt->bindParam(':total', $datos['total'], PDO::PARAM_STR);
+    $stmt->bindParam(':metodoPago', $datos['metodoPago'], PDO::PARAM_STR);
+
+    if ($stmt->execute()) { return 'ok'; } else { return 'error'; }
+
+    $stmt->close();
+    $stmt = null;
+
+  }
+
+  /* --------------------------- FIN DE DITAR VENTA --------------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                               ELIMINAR VENTA                               */
+  /* -------------------------------------------------------------------------- */
+
+  static public function mdlEliminarVenta($tabla, $datos) {
+
+    $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+    $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+    if ($stmt -> execute()) { return 'ok'; } else { return 'error'; }
+
+    $stmt -> close();
+    $stmt = null;
+
+  }
+
+  /* -------------------------- FIN DE ELIMINAR VENTA ------------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                          SUMAR EL TOTAL DE VENTAS                          */
+  /* -------------------------------------------------------------------------- */
+
+  static public function mdlSumaTotalVentas($tabla) {
+    $stmt = Conexion::conectar()->prepare("SELECT SUM(neto) as total FROM $tabla");
+    $stmt -> execute();
+    return $stmt -> fetch();
+    $stmt -> close();
+    $stmt = null;
+  }
+
+  /* --------------------- FIN DE SUMAR EL TOTAL DE VENTAS -------------------- */
+
 }
