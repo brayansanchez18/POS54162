@@ -43,11 +43,23 @@ class AjaxTabladeVentas {
         $botones =  "<div class='btn-group'><button class='btn btn-info btnImprimirFactura' codigoVenta='".$respuesta[$i]['codigo']."'><i class='fa fa-print'></i></button></div>";
       }
 
+      if (is_array($respuestaCliente)) {
+        $cliente = $respuestaCliente['nombre'];
+      } else {
+        $cliente = 'CLIENTE ELIMINADO';
+      }
+
+      if (is_array($respuestaUsuario)) {
+        $vendedor = $respuestaUsuario['nombre'];
+      } else {
+        $vendedor = 'VENDEDOR ELIMINADO';
+      }
+
       $datosJson .='[
           "'.($i+1).'",
           "'.$respuesta[$i]['codigo'].'",
-          "'.$respuestaCliente['nombre'].'",
-          "'.$respuestaUsuario['nombre'].'",
+          "'.$cliente.'",
+          "'.$vendedor.'",
           "'.$respuesta[$i]['metodoPago'].'",
           "$'.number_format($respuesta[$i]['neto'],2).'",
           "$'.number_format($respuesta[$i]['total'],2).'",

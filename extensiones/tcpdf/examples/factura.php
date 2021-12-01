@@ -45,6 +45,18 @@ $valorVendedor = $respuestaVenta['idVendedor'];
 
 $respuestaVendedor = ControladorUsuarios::ctrMostrarUsuarios($itemVendedor, $valorVendedor);
 
+if (is_array($respuestaVendedor)) {
+	$vendedor = $respuestaVendedor['nombre'];
+} else {
+	$vendedor = 'VENDEDOR ELIMINADO';
+}
+
+if (is_array($respuestaCliente)) {
+	$cliente = $respuestaCliente['nombre'];
+} else {
+	$cliente = 'CLIENTE ELIMINADO';
+}
+
 //REQUERIMOS LA CLASE TCPDF
 
 require_once('tcpdf_include.php');
@@ -99,7 +111,7 @@ $bloque2 = <<<EOF
 	<table style="font-size:10px; padding:5px 10px;">
 		<tr>
 			<td style="border: 1px solid #666; background-color:white; width:390px">
-				Cliente: $respuestaCliente[nombre]
+				Cliente: $cliente
 			</td>
 
 			<td style="border: 1px solid #666; background-color:white; width:150px; text-align:right">
@@ -108,7 +120,7 @@ $bloque2 = <<<EOF
 		</tr>
 
 		<tr>
-			<td style="border: 1px solid #666; background-color:white; width:540px">Vendedor: $respuestaVendedor[nombre]</td>
+			<td style="border: 1px solid #666; background-color:white; width:540px">Vendedor: $vendedor</td>
 		</tr>
 
 		<tr>

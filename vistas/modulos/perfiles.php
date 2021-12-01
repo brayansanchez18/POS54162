@@ -79,13 +79,21 @@ $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor); ?>
 
                 <td><?=$value['ultimologin']?></td>
 
-                <td>
-                  <div class="btn-group">
-                    <button class="btn btn-warning btnEditarUsuario" idUsuario="<?=$value['id']?>" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-edit"></i></button>
+                <?php if (count($usuarios) == 1): ?>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning btnEditarUsuario" idUsuario="<?=$value['id']?>" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-edit"></i></button>
+                    </div>
+                  </td>
+                <?php else: ?>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning btnEditarUsuario" idUsuario="<?=$value['id']?>" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-edit"></i></button>
 
-                    <button class="btn btn-danger btnEliminarUsuario" idUsuario="<?=$value['id']?>" fotoUsuario="<?=$value['foto']?>" usuario="<?=$value['usuario']?>"><i class="fa fa-times"></i></button>
-                  </div>
-                </td>
+                      <button class="btn btn-danger btnEliminarUsuario" idUsuario="<?=$value['id']?>" fotoUsuario="<?=$value['foto']?>" usuario="<?=$value['usuario']?>"><i class="fa fa-times"></i></button>
+                    </div>
+                  </td>
+                <?php endif ?>
               </tr>
             <?php endforeach ?>
           </tbody>

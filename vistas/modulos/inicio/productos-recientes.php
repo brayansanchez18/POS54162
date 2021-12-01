@@ -15,7 +15,11 @@ $productos = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
       <?php for ($i = 0; $i < 10; $i++): ?>
         <li class="item">
           <div class="product-img">
-            <img src="<?=$productos[$i]['imagen']?>" alt="<?=$productos[$i]['descripcion']?>" class="img-size-50">
+            <?php if ($productos[$i]['imagen'] != ''): ?>
+              <img src="<?=$productos[$i]['imagen']?>" alt="<?=$productos[$i]['descripcion']?>" class="img-size-50">
+            <?php else: ?>
+              <img src="vistas/img/productos/default/anonymous.png" alt="<?=$productos[$i]['descripcion']?>" class="img-size-50">
+            <?php endif ?>
           </div>
           <div class="product-info">
             <a class="product-title"><?=$productos[$i]['descripcion']?>

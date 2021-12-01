@@ -11,11 +11,15 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="vistas/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <?php if ($_SESSION['foto'] != ''): ?>
+          <img src="<?=$_SESSION['foto']?>" class="img-circle elevation-2" alt="<?=$_SESSION['nombre']?>">
+        <?php else: ?>
+          <img src="vistas/img/usuarios/default/anonymous.png" class="img-circle elevation-2" alt="<?=$_SESSION['nombre']?>">
+        <?php endif ?>
       </div>
       <div class="ml-2">
         <div class="info">
-          <a class="d-block">Alexander Pierce</a>
+          <a class="d-block"><?=$_SESSION['nombre']?></a>
         </div>
         <br>
         <div class="info">

@@ -43,8 +43,13 @@ $totalVentas = ControladorProductos::ctrMostrarSumaVentas();
       <?php for ($i = 0; $i <5; $i++): ?>
         <li class="nav-item">
           <a class="nav-link">
-            <img src="<?=$productos[$i]['imagen']?>" class="img-thumbnail" width="60px" style="margin-right:10px">
-            <?=$productos[$i]["descripcion"]?>
+            <?php if ($productos[$i]['imagen'] != ''): ?>
+              <img src="<?=$productos[$i]['imagen']?>" class="img-thumbnail" width="60px" style="margin-right:10px">
+            <?php else: ?>
+              <img src="vistas/img/productos/default/anonymous.png" alt="<?=$productos[$i]['descripcion']?>" class="img-size-50">
+            <?php endif ?>
+
+            <?=$productos[$i]['descripcion']?>
           </a>
         </li>
       <?php endfor ?>

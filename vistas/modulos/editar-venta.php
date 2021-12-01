@@ -73,7 +73,11 @@
                       <span class="input-group-text"><i class="fa fa-users"></i></span>
                     </div>
                     <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
-                      <option value="<?=$cliente['id']?>"><?=$cliente['nombre']?></option>
+                      <?php if (is_array($cliente)): ?>
+                        <option value="<?=$cliente['id']?>"><?=$cliente['nombre']?></option>
+                      <?php else: ?>
+                        <option value="">Seleccionar cliente</option>
+                      <?php endif ?>
 
                       <?php $item = null;
                       $valor = null;
@@ -104,7 +108,11 @@
                     $valor = $value['id'];
                     $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
 
-                    $stockAntiguo = $respuesta['stock'] + $value['cantidad'];
+                    if (is_array($respuesta)) {
+                      $stockAntiguo = $respuesta['stock'] + $value['cantidad'];
+                    } else {
+                      $stockAntiguo = 0;
+                    }
                     ?>
 
                     <div class="row" style="padding:5px 15px">
@@ -115,13 +123,20 @@
                               <button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="<?=$value['id']?>"><i class="fa fa-times"></i></button>
                             </span>
                           </div>
-
-                          <input type="text" class="form-control nuevaDescripcionProducto" idProducto="<?=$value['id']?>" name="agregarProducto" value="<?=$value['descripcion']?>" readonly required>
+                          <?php if (is_array($respuesta)): ?>
+                            <input type="text" class="form-control nuevaDescripcionProducto" idProducto="<?=$value['id']?>" name="agregarProducto" value="<?=$value['descripcion']?>" readonly required>
+                          <?php else: ?>
+                            <input type="text" class="form-control nuevaDescripcionProducto" idProducto="0" value="PRODUCTO ELIMINADO" readonly required>
+                          <?php endif ?>
                         </div>
                       </div>
 
                       <div class="col-2">
-                        <input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="<?=$value['cantidad']?>" stock="<?=$stockAntiguo?>" nuevoStock="<?=$value['stock']?>" required>
+                        <?php if (is_array($respuesta)): ?>
+                          <input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="<?=$value['cantidad']?>" stock="<?=$stockAntiguo?>" nuevoStock="<?=$value['stock']?>" required>
+                        <?php else: ?>
+                          <input type="number" class="form-control nuevaCantidadProducto" min="1" value="0" stock="0" nuevoStock="0" readonly required>
+                        <?php endif ?>
                       </div>
 
                       <div class="col-4 ingresoPrecio" style="padding-left:0px">
@@ -129,8 +144,11 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                           </div>
-
-                          <input type="text" class="form-control nuevoPrecioProducto" precioReal="<?=$respuesta['precioVenta']?>" name="nuevoPrecioProducto" value="<?=$value['total']?>" readonly required>
+                          <?php if (is_array($respuesta)): ?>
+                            <input type="text" class="form-control nuevoPrecioProducto" precioReal="<?=$respuesta['precioVenta']?>" name="nuevoPrecioProducto" value="<?=$value['total']?>" readonly required>
+                          <?php else: ?>
+                            <input type="text" class="form-control nuevoPrecioProducto" precioReal="0" value="0" readonly required>
+                        <?php endif ?>
                         </div>
                       </div>
                     </div>

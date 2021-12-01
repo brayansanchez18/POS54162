@@ -1,11 +1,11 @@
 /// HACEMOS DINAMICA LA TABLA DE VENTAS EN CREAR VENTAS
 
-// $.ajax({
-//   url:'ajax/gestorVentas.ajax.php',
-//   success:function(respuesta) {
-//     console.log('%cMyProject%cline:5%crespuesta', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(1, 77, 103);padding:3px;border-radius:2px', respuesta)
-//   }
-// })
+$.ajax({
+  url:'ajax/gestorVentas.ajax.php',
+  success:function(respuesta) {
+    console.log('%cMyProject%cline:5%crespuesta', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(1, 77, 103);padding:3px;border-radius:2px', respuesta)
+  }
+})
 
 $('.tablaAdministrarVentas').DataTable( {
   "ajax": "ajax/gestorVentas.ajax.php",

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2021 a las 00:54:17
+-- Tiempo de generación: 01-12-2021 a las 05:41:35
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.25
 
@@ -38,11 +38,13 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(1, 'Equipos Electromecanicos', '2021-03-27 19:42:24'),
-(2, 'Taladros', '2021-03-27 19:23:47'),
-(3, 'Andamios', '2021-03-27 19:24:07'),
-(4, 'Generadores de energía', '2021-03-27 19:24:23'),
-(5, 'Equipos para construcción', '2021-03-27 19:24:45');
+(15, 'Adhesivo', '2021-12-01 03:30:25'),
+(16, 'Reglas', '2021-12-01 03:30:51'),
+(17, 'Hojas', '2021-12-01 03:31:04'),
+(18, 'Libretas', '2021-12-01 03:31:15'),
+(19, 'Cartulinas', '2021-12-01 03:31:24'),
+(20, 'Lapices', '2021-12-01 03:31:41'),
+(21, 'Boligrafos', '2021-12-01 03:32:00');
 
 -- --------------------------------------------------------
 
@@ -65,10 +67,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `email`, `telefono`, `compras`, `ultimaCompra`, `fecha`) VALUES
-(1, 'Juan Villegas', 'juan@hotmail.com', '(+52) 341-245-4100', 3, '0000-00-00 00:00:00', '2021-11-30 23:48:16'),
-(3, 'Miguel Murillo Prez', 'miguel@gmail.com', '(+52) 722-126-5399', -6, '2021-03-15 15:30:17', '2021-11-30 23:49:35'),
-(4, 'Victor Gabriel', 'vg@gmail.com', '(+52) 722-123-5699', -24, '2021-04-15 16:57:24', '2021-11-30 23:51:50'),
-(5, 'Michelle Sandoval', 'michelle@cliente.com', '(+52) 722-883-8661', 0, '0000-00-00 00:00:00', '2021-04-16 03:16:47');
+(10, 'Emanuel Ramírez', 'bs6961204@gmail.com', '(+52) 729-592-4900', 4, '2021-11-30 22:11:25', '2021-12-01 04:11:25'),
+(11, 'Brayan Sánchez', 'brayan.sanchez.contacto@gmail.om', '(+52) 729-592-4900', 4, '0000-00-00 00:00:00', '2021-12-01 04:39:35');
 
 -- --------------------------------------------------------
 
@@ -94,68 +94,23 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `idCategoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precioCompra`, `precioVenta`, `ventas`, `fecha`) VALUES
-(1, 1, '101', 'Aspiradora Industrial 2', 'vistas/img/productos/101/660.png', 10, 90000, 126000, -4, '2021-11-30 23:48:16'),
-(2, 1, '102', 'Plato Flotante para Allanadora', 'vistas/img/productos/102/489.jpg', 22, 4500, 6300, -3, '2021-11-30 23:49:35'),
-(3, 1, '103', 'Compresor de Aire para pintura', 'vistas/img/productos/103/642.jpg', 18, 3000, 4200, -8, '2021-11-30 23:51:50'),
-(4, 1, '104', 'Cortadora de Adobe sin Disco ', 'vistas/img/productos/104/274.jpg', 27, 4000, 5600, -7, '2021-11-30 23:51:49'),
-(5, 1, '105', 'Cortadora de Piso sin Disco ', 'vistas/img/productos/105/363.jpg', 32, 1540, 2156, -12, '2021-11-30 23:49:03'),
-(6, 1, '106', 'Disco Punta Diamante ', 'vistas/img/productos/106/686.jpg', 20, 1100, 1540, 0, '2021-11-30 23:48:16'),
-(7, 1, '107', 'Extractor de Aire ', 'vistas/img/productos/107/133.jpg', 21, 1540, 2156, 1, '2021-11-30 23:51:49'),
-(8, 1, '108', 'Guadañadora ', 'vistas/img/productos/108/882.jpg', 19, 1540, 2156, 1, '2021-04-15 20:30:17'),
-(9, 1, '109', 'Hidrolavadora Eléctrica ', 'vistas/img/productos/109/467.jpg', 20, 2600, 3640, 0, '2021-03-29 00:58:24'),
-(10, 1, '110', 'Hidrolavadora Gasolina', 'vistas/img/productos/110/566.jpg', 22, 2210, 3094, -2, '2021-04-14 21:38:53'),
-(11, 1, '111', 'Motobomba a Gasolina', 'vistas/img/productos/111/724.jpg', 20, 2860, 4004, 0, '2021-03-29 01:02:26'),
-(12, 1, '112', 'Motobomba El?ctrica', '', 20, 2400, 3360, 0, '2021-03-27 23:32:02'),
-(13, 1, '113', 'Sierra Circular ', '', 20, 1100, 1540, 0, '2021-03-27 23:32:02'),
-(14, 1, '114', 'Disco de tugsteno para Sierra circular', '', 20, 4500, 6300, 0, '2021-03-27 23:32:02'),
-(15, 1, '115', 'Soldador Electrico ', '', 20, 1980, 2772, 0, '2021-03-27 23:32:02'),
-(16, 1, '116', 'Careta para Soldador', '', 20, 4200, 5880, 0, '2021-03-27 23:32:02'),
-(17, 1, '117', 'Torre de iluminacion ', '', 20, 1800, 2520, 0, '2021-03-27 23:32:02'),
-(18, 2, '201', 'Martillo Demoledor de Piso 110V', '', 20, 5600, 7840, 0, '2021-03-27 23:32:02'),
-(19, 2, '202', 'Muela o cincel martillo demoledor piso', '', 20, 9600, 13440, 0, '2021-03-27 23:32:02'),
-(20, 2, '203', 'Taladro Demoledor de muro 110V', '', 20, 3850, 5390, 0, '2021-03-27 23:32:02'),
-(21, 2, '204', 'Muela o cincel martillo demoledor muro', '', 20, 9600, 13440, 0, '2021-03-27 23:32:02'),
-(22, 2, '205', 'Taladro Percutor de 1/2 Madera y Metal', '', 20, 8000, 11200, 0, '2021-03-28 04:33:20'),
-(23, 2, '206', 'Taladro Percutor SDS Plus 110V', '', 20, 3900, 5460, 0, '2021-03-27 23:32:02'),
-(24, 2, '207', 'Taladro Percutor SDS Max 110V (Mineria)', '', 20, 4600, 6440, 0, '2021-03-27 23:32:02'),
-(25, 3, '301', 'Andamio colgante', '', 20, 1440, 2016, 0, '2021-03-27 23:32:02'),
-(26, 3, '302', 'Distanciador andamio colgante', '', 20, 1600, 2240, 0, '2021-03-27 23:32:02'),
-(27, 3, '303', 'Marco andamio modular ', '', 20, 900, 1260, 0, '2021-03-27 23:32:02'),
-(28, 3, '304', 'Marco andamio tijera', '', 20, 100, 140, 0, '2021-03-27 23:32:02'),
-(29, 3, '305', 'Tijera para andamio', '', 20, 162, 226, 0, '2021-03-27 23:32:02'),
-(30, 3, '306', 'Escalera interna para andamio', '', 20, 270, 378, 0, '2021-03-27 23:32:02'),
-(31, 3, '307', 'Pasamanos de seguridad', '', 20, 75, 105, 0, '2021-03-27 23:32:02'),
-(32, 3, '308', 'Rueda giratoria para andamio', '', 20, 168, 235, 0, '2021-03-27 23:32:02'),
-(33, 3, '309', 'Arnes de seguridad', '', 20, 1750, 2450, 0, '2021-03-27 23:32:02'),
-(34, 3, '310', 'Eslinga para arnes', '', 20, 175, 245, 0, '2021-03-27 23:32:02'),
-(35, 3, '311', 'Plataforma Met?lica', '', 20, 420, 588, 0, '2021-03-27 23:32:02'),
-(36, 4, '401', 'Planta Electrica Diesel 6 Kva', '', 20, 3500, 4900, 0, '2021-03-27 23:32:02'),
-(37, 4, '402', 'Planta Electrica Diesel 10 Kva', '', 20, 3550, 4970, 0, '2021-03-27 23:32:02'),
-(38, 4, '403', 'Planta Electrica Diesel 20 Kva', '', 20, 3600, 5040, 0, '2021-03-27 23:32:02'),
-(39, 4, '404', 'Planta Electrica Diesel 30 Kva', '', 20, 3650, 5110, 0, '2021-03-27 23:32:02'),
-(40, 4, '405', 'Planta Electrica Diesel 60 Kva', '', 20, 3700, 5180, 0, '2021-03-27 23:32:02'),
-(41, 4, '406', 'Planta Electrica Diesel 75 Kva', '', 20, 3750, 5250, 0, '2021-03-27 23:32:02'),
-(42, 4, '407', 'Planta Electrica Diesel 100 Kva', '', 20, 3800, 5320, 0, '2021-03-27 23:32:02'),
-(43, 4, '408', 'Planta Electrica Diesel 120 Kva', '', 20, 3850, 5390, 0, '2021-03-27 23:32:02'),
-(44, 5, '501', 'Escalera de Tijera Aluminio ', '', 20, 350, 490, 0, '2021-03-27 23:32:02'),
-(45, 5, '502', 'Extension Electrica ', '', 20, 370, 518, 0, '2021-03-27 23:32:02'),
-(46, 5, '503', 'Gato tensor', '', 20, 380, 532, 0, '2021-03-27 23:32:02'),
-(47, 5, '504', 'Lamina Cubre Brecha ', '', 20, 380, 532, 0, '2021-03-27 23:32:02'),
-(48, 5, '505', 'Llave de Tubo', '', 20, 480, 672, 0, '2021-03-27 23:32:02'),
-(49, 5, '506', 'Manila por Metro', '', 20, 600, 840, 0, '2021-03-27 23:32:02'),
-(50, 5, '507', 'Polea 2 canales', '', 20, 900, 1260, 0, '2021-03-27 23:32:02'),
-(51, 5, '508', 'Tensor', '', 20, 100, 140, 0, '2021-03-27 23:32:02'),
-(52, 5, '509', 'Bascula ', '', 20, 130, 182, 0, '2021-03-27 23:32:02'),
-(53, 5, '510', 'Bomba Hidrostatica', '', 20, 770, 1078, 0, '2021-03-27 23:32:02'),
-(54, 5, '511', 'Chapeta', '', 20, 660, 924, 0, '2021-03-27 23:32:02'),
-(55, 5, '512', 'Cilindro muestra de concreto', '', 20, 400, 560, 0, '2021-03-27 23:32:02'),
-(56, 5, '513', 'Cizalla de Palanca', '', 20, 450, 630, 0, '2021-03-27 23:32:02'),
-(57, 5, '514', 'Cizalla de Tijera', '', 20, 580, 812, 0, '2021-03-27 23:32:02'),
-(58, 5, '515', 'Coche llanta neumatica', '', 20, 420, 588, 0, '2021-03-27 23:32:02'),
-(59, 5, '516', 'Cono slump', '', 20, 140, 196, 0, '2021-03-27 23:32:02'),
-(60, 5, '517', 'Cortadora de Baldosin', '', 20, 930, 1302, 0, '2021-03-27 23:32:02'),
-(61, 2, '208', 'taladro truper', '', 400, 500, 845, 0, '2021-03-28 21:58:18'),
-(63, 2, '209', 'taladro de piso', 'vistas/img/productos/209/245.jpg', 234, 1450, 2175, 0, '2021-04-16 03:17:41');
+(67, 15, '1501', 'Papel Autoadherible Para Etiquetas', 'vistas/img/productos/1501/847.jpg', 98, 220, 308, 2, '2021-12-01 04:34:07'),
+(68, 15, '1502', 'Rotulos Adhesivos en Colores', 'vistas/img/productos/1502/651.jpg', 99, 10, 14, 1, '2021-12-01 04:34:08'),
+(69, 16, '1601', 'Juego de reglas metalicas', 'vistas/img/productos/1601/809.jpg', 99, 30, 42, 1, '2021-12-01 04:34:07'),
+(70, 15, '1503', 'Barra Pritt', 'vistas/img/productos/1503/932.jpg', 98, 15, 21, 2, '2021-12-01 04:12:34'),
+(71, 15, '1504', 'Postit 10 Pz', 'vistas/img/productos/1504/195.jpg', 99, 30, 42, 1, '2021-12-01 04:10:48'),
+(72, 15, '1505', 'Notas adecivas', 'vistas/img/productos/1505/547.jpg', 98, 59, 82.6, 2, '2021-12-01 04:11:25'),
+(73, 18, '1801', 'Registrador Tipo carta', 'vistas/img/productos/1801/847.jpg', 99, 1600, 2000, 1, '2021-12-01 04:11:25'),
+(74, 18, '1802', 'Libreta profecional scribe', 'vistas/img/productos/1802/942.png', 99, 20, 28, 1, '2021-12-01 04:11:25'),
+(75, 17, '1701', 'Rollo de papel termico 80x80 blanco', 'vistas/img/productos/1701/386.jpg', 100, 50, 70, 0, '2021-12-01 03:56:31'),
+(76, 18, '1803', 'Libreta tipo Moleskine de poliuretano', 'vistas/img/productos/1803/597.jpg', 100, 100, 140, 0, '2021-12-01 03:57:30'),
+(77, 18, '1804', 'Carpeta planner A6', 'vistas/img/productos/1804/589.jpg', 100, 145, 203, 0, '2021-12-01 03:58:56'),
+(78, 18, '1805', 'Cuaderno profecional de doble aro', 'vistas/img/productos/1805/400.jpg', 100, 33, 46.2, 0, '2021-12-01 03:59:56'),
+(79, 18, '1806', 'Libreta de piel cuaderno de bolsillo', 'vistas/img/productos/1806/586.jpg', 100, 110, 154, 0, '2021-12-01 04:00:59'),
+(80, 18, '1807', 'Cuaderno inteligente', 'vistas/img/productos/1807/601.jpg', 100, 300, 420, 0, '2021-12-01 04:02:11'),
+(81, 18, '1808', 'Cuaderno de dibujo canson', 'vistas/img/productos/1808/330.jpg', 100, 150, 210, 0, '2021-12-01 04:03:40'),
+(82, 21, '2101', 'Plumones punta pincel 48 colores', 'vistas/img/productos/2101/634.jpg', 100, 180, 252, 0, '2021-12-01 04:04:37'),
+(83, 21, '2102', 'Boligrafo bic', 'vistas/img/productos/2102/354.jpg', 100, 8, 11.2, 0, '2021-12-01 04:05:47');
 
 -- --------------------------------------------------------
 
@@ -180,13 +135,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `pass`, `perfil`, `foto`, `estado`, `ultimologin`, `fecha`) VALUES
-(1, 'Brayan Sánchez', 'admin', '$2a$07$asxx54ahjppf45sd87a5auBxWKi32TyN7LTmhz0ONBYdcwSQJ0lWO', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-30 15:11:59', '2021-11-30 21:11:59'),
-(8, 'Sandra Gomez', 'sandra_gomez@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auF3SxTPxKrykQWP2opioJ/PI/QjcniEW', 'Vendedor', 'vistas/img/usuarios/sandra_gomez@tuempresa.com/615.jpg', 1, '2021-11-30 15:05:01', '2021-11-30 21:05:01'),
-(9, 'Pedro Faro', 'pedro@tuempresa.com', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', 'vistas/img/usuarios/pedro@tuempresa.com/625.png', 1, '2021-11-30 15:06:46', '2021-11-30 21:06:46'),
-(17, 'prueba123', 'prueba1', '$2a$07$asxx54ahjppf45sd87a5au9qVvwX8gFJUBxfGfDrhdF9F0ilMkf..', 'Administrador', 'vistas/img/usuarios/prueba1/505.png', 1, '2021-11-25 11:02:34', '2021-11-25 17:06:50'),
-(18, 'jasdfasdfj', 'jasdfjajsdf', '$2a$07$asxx54ahjppf45sd87a5au/MQ47ARjlq30LFCJZtxw7D0aAbAhe1e', 'Administrador', 'vistas/img/usuarios/jasdfjajsdf/681.png', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:18'),
-(19, 'prueba2', 'prueba2', '$2a$07$asxx54ahjppf45sd87a5auHZPYySdWSMpJQy0/17lrojl4DUlQYIi', 'Vendedor', 'vistas/img/usuarios/prueba2/431.jpg', 1, '0000-00-00 00:00:00', '2021-11-25 15:47:17'),
-(20, 'prueba3', 'prueba3', '$2a$07$asxx54ahjppf45sd87a5auVUDFPOy15axdxpDQ0Kv0SDEzrcPrv.i', 'Especial', 'vistas/img/usuarios/prueba3/532.png', 1, '2021-11-25 11:07:49', '2021-11-25 17:07:49');
+(1, 'Usuario Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin/303.png', 1, '2021-11-30 22:19:51', '2021-12-01 04:19:51'),
+(22, 'Usuario especial', 'especial', '$2a$07$asxx54ahjppf45sd87a5auf9Eiqdn10E7o/jsGFivN12XE.wRwyp6', 'Especial', '', 1, '0000-00-00 00:00:00', '2021-12-01 03:21:20'),
+(23, 'Usuario Vendedor', 'vendedor', '$2a$07$asxx54ahjppf45sd87a5auF3SxTPxKrykQWP2opioJ/PI/QjcniEW', 'Vendedor', '', 1, '0000-00-00 00:00:00', '2021-12-01 03:22:24');
 
 -- --------------------------------------------------------
 
@@ -212,9 +163,10 @@ CREATE TABLE `ventas` (
 --
 
 INSERT INTO `ventas` (`id`, `codigo`, `idCliente`, `idVendedor`, `productos`, `impuesto`, `neto`, `total`, `metodoPago`, `fecha`) VALUES
-(4, 10003, 4, 1, '[{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"21\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"3\",\"descripcion\":\"Compresor de Aire para pintura\",\"cantidad\":\"1\",\"stock\":\"18\",\"precio\":\"4200\",\"total\":\"4200\"}]', 127.12, 6356, 6483.12, 'Efectivo', '2021-09-30 22:51:50'),
-(7, 10005, 3, 8, '[{\"id\":\"8\",\"descripcion\":\"Guadañadora \",\"cantidad\":\"1\",\"stock\":\"19\",\"precio\":\"2156\",\"total\":\"2156\"},{\"id\":\"7\",\"descripcion\":\"Extractor de Aire \",\"cantidad\":\"1\",\"stock\":\"20\",\"precio\":\"2156\",\"total\":\"2156\"}]', 1293.6, 4312, 5605.6, 'Efectivo', '2021-10-15 20:30:17'),
-(9, 10007, 4, 1, '[{\"id\":\"5\",\"descripcion\":\"Cortadora de Piso sin Disco \",\"cantidad\":\"2\",\"stock\":\"32\",\"precio\":\"2156\",\"total\":\"4312\"}]', 1293.6, 4312, 5605.6, 'TC-123123', '2021-11-30 23:49:04');
+(12, 10001, 11, 1, '[{\"id\":\"68\",\"descripcion\":\"Rotulos Adhesivos en Colores\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"14\",\"total\":\"14\"},{\"id\":\"70\",\"descripcion\":\"Barra Pritt\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"21\",\"total\":\"21\"},{\"id\":\"71\",\"descripcion\":\"Postit 10 Pz\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"42\",\"total\":\"42\"}]', 15.4, 77, 92.4, 'Efectivo', '2021-08-31 03:35:48'),
+(13, 10002, 10, 1, '[{\"id\":\"74\",\"descripcion\":\"Libreta profecional scribe\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"28\",\"total\":\"28\"},{\"id\":\"73\",\"descripcion\":\"Registrador Tipo carta\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"2000\",\"total\":\"2000\"},{\"id\":\"72\",\"descripcion\":\"Notas adecivas\",\"cantidad\":\"2\",\"stock\":\"98\",\"precio\":\"82.6\",\"total\":\"165.2\"}]', 438.64, 2193.2, 2631.84, 'TC-123456789', '2021-10-01 03:11:25'),
+(14, 10003, 11, 1, '[{\"id\":\"69\",\"descripcion\":\"Juego de reglas metalicas\",\"cantidad\":\"1\",\"stock\":\"99\",\"precio\":\"42\",\"total\":\"42\"}]', 4.2, 42, 46.2, 'Efectivo', '2021-10-31 03:35:52'),
+(15, 10004, 11, 1, '[{\"id\":\"67\",\"descripcion\":\"Papel Autoadherible Para Etiquetas\",\"cantidad\":\"2\",\"stock\":\"98\",\"precio\":\"308\",\"total\":\"616\"},{\"id\":\"70\",\"descripcion\":\"Barra Pritt\",\"cantidad\":\"1\",\"stock\":\"98\",\"precio\":\"21\",\"total\":\"21\"}]', 127.4, 637, 764.4, 'Efectivo', '2021-12-01 04:39:09');
 
 --
 -- Índices para tablas volcadas
@@ -258,31 +210,31 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
